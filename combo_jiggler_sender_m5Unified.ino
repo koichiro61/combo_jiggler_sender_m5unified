@@ -90,6 +90,7 @@ EspEasyLED* get_rgbled() {
   Serial.print("LED g=");
   Serial.println(g);
   if ( g < LED_MAX_PIN) {
+    pinMode(g, OUTPUT);
     return new EspEasyLED(g, 1, 20); // GPIO, number of LEDs, Max brightness
   } else {
     return NULL;
