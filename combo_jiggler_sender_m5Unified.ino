@@ -4,6 +4,8 @@
  *
 */
 
+#define VERSION "20250624"
+
 #include "M5Unified.h"
 #include <BleCombo.h>     // Use forked version https://github.com/the0duke0/ESP32-BLE-Combo
 #include "EspEasyLED.h"   // https://github.com/tanakamasayuki/EspEasyUtils
@@ -90,7 +92,7 @@ EspEasyLED* get_rgbled() {
   Serial.print("LED g=");
   Serial.println(g);
   if ( g < LED_MAX_PIN) {
-    pinMode(g, OUTPUT);
+    pinMode(g, OUTPUT); // added on 20250624
     return new EspEasyLED(g, 1, 20); // GPIO, number of LEDs, Max brightness
   } else {
     return NULL;
@@ -101,6 +103,7 @@ void setup() {
   auto cfg = M5.config();
   M5.begin(cfg);
   Serial.begin(115200);
+  Serial.printf("combo_jiggler_sender_m5Unified version %s\n", VERSION);
 
   rgbled = get_rgbled();  // depending on model type
 
