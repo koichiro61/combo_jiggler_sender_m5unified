@@ -4,7 +4,7 @@
  *
 */
 
-#define VERSION "20250701"
+#define VERSION "20250624"
 
 #include "M5Unified.h"
 #include <BleCombo.h>     // Use forked version https://github.com/the0duke0/ESP32-BLE-Combo
